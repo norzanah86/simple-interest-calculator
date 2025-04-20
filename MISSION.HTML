@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Interest Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      max-width: 400px;
+      margin: auto;
+      background-color: #f9f9f9;
+    }
+    h2 {
+      text-align: center;
+    }
+    label, input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Simple Interest Calculator</h2>
+
+  <label for="principal">Principal (P):</label>
+  <input type="number" id="principal" placeholder="Enter principal amount">
+
+  <label for="rate">Rate (% per year):</label>
+  <input type="number" id="rate" placeholder="Enter annual interest rate">
+
+  <label for="time">Time (years):</label>
+  <input type="number" id="time" placeholder="Enter time in years">
+
+  <button onclick="calculateInterest()">Calculate</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculateInterest() {
+      const P = parseFloat(document.getElementById('principal').value);
+      const R = parseFloat(document.getElementById('rate').value);
+      const T = parseFloat(document.getElementById('time').value);
+
+      if (isNaN(P) || isNaN(R) || isNaN(T)) {
+        document.getElementById('result').innerText = "Please fill in all fields with valid numbers.";
+        return;
+      }
+
+      const interest = (P * R * T) / 100;
+      document.getElementById('result').innerText = `Simple Interest: RM ${interest.toFixed(2)}`;
+    }
+  </script>
+
+</body>
+</html>
